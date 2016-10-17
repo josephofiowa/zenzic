@@ -2,7 +2,7 @@
 
 Zenzic is a the a deprecated German term meaning "squared." It is the root of the term [zenzizenzizenzic](https://en.wikipedia.org/wiki/Zenzizenzizenzic), which is an obsolete term that translates to "the eighth power."
 
-This is the term I appropriate to arbitrary analysis I do for fun because 1) the mathematical undertones of this word AND 2) you're able to append the word "zenzic" to itself, which adds an additional square to any term: any analysis can always go further. (As an added bonus, I have German roots, so that's also pretty neat.)
+This is the term I appropriate to arbitrary analysis I do for fun because 1) the mathematical undertones of this word AND 2) you're able to append the word "zenzi[c]" to itself, which adds an additional square to any term: any analysis can always go further. (As an added bonus, I have German roots, so that's also pretty neat.)
 
 ## In this repository...
 
