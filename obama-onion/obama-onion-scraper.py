@@ -22,4 +22,7 @@ links = []
 for x in soup1.find_all('div', attrs={'class':'article-link'}):
     links.append(x.find('a')['href'])
 
-len(set(links)) 
+import pandas as pd
+onion = pd.DataFrame(data=links, columns=['links'])
+onion.head()
+onion.to_csv('onion_links.csv')
