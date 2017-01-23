@@ -35,9 +35,11 @@ Using the links to collect data
 onion = pd.read_csv('onion_links.csv')
 onion.head()
 
-# drop all graphics from dataset
+# drop all graphics and videos from dataset
 for i, x in enumerate(onion.links):
     if '/graphic/' in x:
+        onion.drop(i, inplace=True)
+    elif '/video/' in x:
         onion.drop(i, inplace=True)
 
 # confirm drops
