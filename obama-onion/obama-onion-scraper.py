@@ -8,6 +8,7 @@ Created on Wed Jan 18 15:45:04 2017
 # standard imports
 from bs4 import BeautifulSoup
 import requests
+import pandas as pd
 
 # grab the full text of the feature page
 r = requests.get('http://www.theonion.com/interactive/obama/2008/28')
@@ -22,7 +23,6 @@ for x in soup1.find_all('div', attrs={'class':'article-link'}):
     links.append(x.find('a')['href'])
 
 # save as csv
-import pandas as pd
 onion = pd.DataFrame(data=links, columns=['links'])
 onion.head()
 onion.to_csv('onion_links.csv')
@@ -33,23 +33,48 @@ Using the links to collect data
 
 # load csv
 onion = pd.read_csv('onion_links.csv')
+
+# drop re-indexed columns
+onion.drop('Unnamed: 0', axis=1, inplace=True)
+
+# good to go
 onion.head()
 
-# drop all graphics and videos from dataset
+# find graphic and video indexes
+non_text = []
+
 for i, x in enumerate(onion.links):
     if '/graphic/' in x:
-        onion.drop(i, inplace=True)
+        non_text.append(i)
+        print i
     elif '/video/' in x:
-        onion.drop(i, inplace=True)
+        non_text.append(i)
+        print i
+        
+# drop graphics/videos
+onion.drop(non_text, inplace=True)
 
-# confirm drops
+# how many non-text stories did The Onion feautre?
+len(non_text)
+
+# see how many dropped
 onion.shape
+
+# fix index
+onion.index
 
 # fix index
 onion.reset_index(inplace=True)
 
-# drop re-indexed columns
-onion.drop('Unnamed: 0', axis=1, inplace=True)
+# check fixed index
+onion.index
+
+# drop old index
+onion.drop('index', axis=1, inplace=True)
+
+# check df - good to go
+onion.index
+onion.head()
 
 # build df
 stories = pd.DataFrame(columns=['link','title','date','tag0','tag1','tag2','tag3','tag4','body'])
@@ -101,4 +126,4 @@ for j, slug in enumerate(onion.links):
     print 'Completed ' + str(j)
     sleep(random.uniform(.1,70))
 
-stories.to_csv('obama_final.csv')
+stories.to_csv('obama_scraped.csv')
