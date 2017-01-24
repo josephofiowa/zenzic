@@ -45,7 +45,13 @@ for i, x in enumerate(onion.links):
 # confirm drops
 onion.shape
 
-# build dataset
+# fix index
+onion.reset_index(inplace=True)
+
+# drop re-indexed columns
+onion.drop('Unnamed: 0', axis=1, inplace=True)
+
+# build df
 stories = pd.DataFrame(columns=['link','title','date','tag0','tag1','tag2','tag3','tag4','body'])
 
 # grab these to be nice to The Onion
@@ -55,7 +61,7 @@ import random
 for j, slug in enumerate(onion.links):    
     # request main feature page each time to be legit
     requests.get('http://www.theonion.com/interactive/obama')
-    # wait to grab a link
+    # wait ~3 seconds to grab a link
     sleep(random.uniform(.1,6))    
     
     # begin the real process
@@ -64,7 +70,7 @@ for j, slug in enumerate(onion.links):
     soup = BeautifulSoup(r.text)
     
     # grab article title      
-    title = soup.find('header', attrs={'class':'electoral-retro-promo-header'}).find('a').text.strip()
+    title = soup.find('header', attrs={'class':'content-header electoral-retro'}).find('h1').text
     # grab article date
     date = soup.find('span', attrs={'class':'content-published'}).text.strip()
     # inelegantly reset tags each iteration
@@ -90,7 +96,9 @@ for j, slug in enumerate(onion.links):
     
     # add to df
     stories.loc[len(stories)]=[link_to_visit, title, date, tags['tag0'], tags['tag1'], tags['tag2'], tags['tag3'], tags['tag4'], body]    
-    # pause a random amount of time - about a minute each
+    # pause a random amount of time - about a 35 seconds each
     
     print 'Completed ' + str(j)
     sleep(random.uniform(.1,70))
+
+# stories.to_csv('obama_final.csv')
