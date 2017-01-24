@@ -101,4 +101,4 @@ for j, slug in enumerate(onion.links):
     print 'Completed ' + str(j)
     sleep(random.uniform(.1,70))
 
-# stories.to_csv('obama_final.csv')
+stories.to_csv('obama_final.csv')
