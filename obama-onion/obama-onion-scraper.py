@@ -46,10 +46,10 @@ non_text = []
 for i, x in enumerate(onion.links):
     if '/graphic/' in x:
         non_text.append(i)
-        print i
+        # print i
     elif '/video/' in x:
         non_text.append(i)
-        print i
+        # print i
         
 # drop graphics/videos
 onion.drop(non_text, inplace=True)
@@ -105,9 +105,12 @@ for j, slug in enumerate(onion.links):
            'tag3':None,
            'tag4':None
            }
-    # grab tags for article - but only as many tags (<=4) as appear for an article
-    for i, x in enumerate(soup.find('span', attrs={'class':'content-tags'}).find_all('a')):
-        tags['tag{0}'.format(i)]=x.text.strip()
+    # grab tags for article - but only as many tags (<=5) as appear for an article
+    try:
+        for i, x in enumerate(soup.find('span', attrs={'class':'content-tags'}).find_all('a')):
+            tags['tag{0}'.format(i)]=x.text.strip()
+    except:
+        pass
     
     # body - inelegantly ignore Copyright and spam filtering p text tags
     body = []
@@ -126,4 +129,4 @@ for j, slug in enumerate(onion.links):
     print 'Completed ' + str(j)
     sleep(random.uniform(.1,70))
 
-stories.to_csv('obama_scraped.csv')
+stories.to_csv('obama_scraped.csv', encoding='utf-8')
