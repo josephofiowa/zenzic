@@ -6,7 +6,7 @@ This is the term I appropriate to arbitrary analysis I do for fun because 1) the
 
 ## In this repository...
 
-You'll find a collection of "work in progress" early inquisitivities that do not warrant their own repo: hockey analysis, data science lessons, and miscellaneous stats questions (like what does it [look like](https://github.com/josephofiowa/zenzic/blob/master/normality_exp.py) to square the normal distribution?).
+You'll find a collection of "work in progress" early inquisitivities that do not warrant their own repo: hockey analysis, data science lessons, and miscellaneous stats questions (like what does it [look like](https://github.com/josephofiowa/zenzic/blob/master/normality_exp.py) to experimentally produce a Chi-Squared distribution?).
 
  Projects that grow make their way to an independent repository. For example, hockey analysis from here grew into [Dekegeek/BOSHAC16](https://github.com/josephofiowa/dekegeek/tree/master/boshac16), where Brian Carothers and I presented cutting edge ways to measure the effectiveness NHL defensemen.
 
