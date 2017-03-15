@@ -19,10 +19,11 @@ class LetItSnow:
         Runs the scraper. Returns a dataframe that has three columns: 'year', 
         'date', and 'notice' (the snow advisory text) and also saves that df as 
         csv called opm_snow_data.csv to your current working directory 
-        """          
+        """     
+        snow_data = self.buildDataframe()
         r = requests.get('https://www.opm.gov/policy-data-oversight/snow-dismissal-procedures/status-archives/')
         soup = BeautifulSoup(r.text)
-        snow_data = self.buildDataframe()
+        items = soup.find(name='ul', attrs={'class':'StatusYearContainer'}).find_all('li')
         for item in items:
             try:
                 year = item.find('div', {'class':'StatusYear'}).text
