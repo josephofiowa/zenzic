@@ -11,7 +11,7 @@ class LetItSnow:
 
     Example:
     Call this script with simply:
-        $ python federalsnow-scraper.py
+        $ python fedsnow-scraper.py
     """
     
     def scrapeOPM(self):
