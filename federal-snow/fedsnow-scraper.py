@@ -37,7 +37,7 @@ class LetItSnow:
             except:
                 pass
         snow_data.to_csv('opm_snow_data.csv', encoding='utf-8')
-        print('Finished. Scraped ' + str(len(snow_data)) + ' snow-related events')
+        print('\n Finished. Scraped ' + str(len(snow_data)) + ' snow-related events \n')
         return snow_data
 
     def buildDataframe(self):
