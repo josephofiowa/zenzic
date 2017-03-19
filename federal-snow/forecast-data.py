@@ -75,7 +75,7 @@ for date in dates:
 weather.shape
 weather.head()
 weather.tail()
-# dulicates? (because except statement above)
+# dulicates? (because except statement above will re-add a previous date if it does not find 11PM)
 weather.duplicated(subset=['summary', 'temp', 'precip', 'precip_intensity', 'precip_type', 'wind', 'visibility']).value_counts()
 
 # export it
