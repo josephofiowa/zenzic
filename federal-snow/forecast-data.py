@@ -75,6 +75,8 @@ for date in dates:
 weather.shape
 weather.head()
 weather.tail()
+# dulicates? (because except statement above)
+weather.duplicated(subset=['summary', 'temp', 'precip', 'precip_intensity', 'precip_type', 'wind', 'visibility']).value_counts()
 
 # export it
 weather.to_csv('forecasts.csv', encoding='utf-8')
