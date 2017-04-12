@@ -22,7 +22,7 @@ class LetItSnow:
         """     
         snow_data = self.buildDataframe()
         r = requests.get('https://www.opm.gov/policy-data-oversight/snow-dismissal-procedures/status-archives/')
-        soup = BeautifulSoup(r.text, 'html.parser', from_encoding="utf-8")
+        soup = BeautifulSoup(r.text, 'html.parser')
         items = soup.find(name='ul', attrs={'class':'StatusYearContainer'}).find_all('li')
         for item in items:
             try:
