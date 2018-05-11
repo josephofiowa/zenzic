@@ -10,4 +10,4 @@ while views == True:
 	print(page)
 	print("Yessir. Viewed: " + str(count) + " times.")
 	count = count + 1
-	sleep(np.random.normal(1)*pi)
+	sleep(np.random.normal(loc=3.0, size=1)*pi)
