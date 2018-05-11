@@ -1,5 +1,7 @@
 import requests
 from time import sleep
+import numpy as np
+from math import pi as pi
 
 count = 0
 views = True
@@ -8,4 +10,4 @@ while views == True:
 	print(page)
 	print("Yessir. Viewed: " + str(count) + " times.")
 	count = count + 1
-	sleep(3)
+	sleep(np.random.normal(1)*pi)
