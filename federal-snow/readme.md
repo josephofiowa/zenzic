@@ -16,7 +16,7 @@ Keep up with the latest data science trends, cool analyses like this, and more v
 
 ### Medium Write-Up 
 
-Read my [Medium post](https://medium.com/p/75a3432c613a/edit) describing my analysis.
+Read my [Medium post](https://theindex.generalassemb.ly/auditing-the-feds-what-determines-a-federal-government-snow-day-75a3432c613a) describing my analysis.
 
 ### Data Collection
 
